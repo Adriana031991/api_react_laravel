@@ -1,0 +1,7 @@
+.home {
+    width: 100%;
+
+    .top_banner {
+        max-width: 100%;
+    }
+}

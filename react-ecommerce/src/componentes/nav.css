@@ -1,0 +1,150 @@
+.header {
+    width: 100%;
+    background: #fed700;
+
+    .top_header {
+        max-width: 100%;
+        display: flex;
+        padding: 10px 10px;
+        background: #f6f7f8;
+
+        .icon {
+            margin-left: 20px;
+            color: #ababab;
+            font-size: 1.3rem;
+        }
+
+        .info p {
+            margin-left: 10px;
+            color: #8a8a8a;
+        }
+    }
+
+    .mid_header {
+        display: flex;
+        padding: 20px 20px;
+        max-width: 100%;
+        justify-content: space-between;
+
+        .logo img {
+
+            cursor: pointer;
+            object-fit: cover;
+        }
+
+        .search_box input {
+            padding: 10px 10px;
+            outline: none;
+            background: none;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            width: 250px;
+            background: #f6f6f8;
+            border: none;
+        }
+
+        .search_box button {
+            padding: 10px 10px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            margin-right: 30px;
+            transition: 0.5s;
+            font-weight: 600;
+            border: none;
+            color: #fff;
+            background: #000;
+        }
+
+        .search_box button:hover {
+            background: #8a8a8a;
+            border: none;
+        }
+
+        .user {
+            display: flex;
+            margin-right: 30px;
+            flex-direction: column;
+            align-items: center;
+
+            .icon {
+                /* margin-right: 10px; */
+                font-size: 1.1rem;
+            }
+
+            button {
+                display: flex;
+                border: none;
+                outline: none;
+                background: none;
+                cursor: pointer;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            button span {
+                font-weight: 700;
+
+            }
+        }
+    }
+
+    .last_header {
+        width: 100%;
+        padding: 10px 10px;
+        display: flex;
+        background: #232323;
+        justify-content: space-between;
+
+        .user_profile {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .info {
+            margin-left: 10px;
+
+            img {
+                border-radius: 50%;
+            }
+
+            h2 {
+                color: #fff;
+                font-size: 18px;
+
+            }
+
+            span {
+                color: #ababab;
+                font-size: 14px;
+            }
+        }
+
+        .nav {
+            margin-top: 10px;
+
+            ul {
+                display: flex;
+
+                li {
+                    list-style: none;
+
+                    .link {
+                        margin-right: 20px;
+                        text-decoration: none;
+                        color: #fff;
+                        font-weight: 600;
+                        transition: 0.5s;
+                    }
+
+                    .link:hover {
+                        color: #fed700;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
