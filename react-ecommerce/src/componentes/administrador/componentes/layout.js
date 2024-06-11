@@ -6,10 +6,15 @@ import Navbar from './navbar'
 const Layout = () => {
     return (
         <>
-            <div className="bg-sky-200"><Sidebar /></div>
-            <div className="bg-teal-200"><Navbar user={'user'} /></div>
+            <section className='flex flex-grow bg-neutral-100 h-screen w-screen overflow-hidden'>
+                <aside><Sidebar /></aside>
+                <nav> <Navbar user={''} /> </nav>
+                <section className="p-4">
+                    <div>{<Outlet />}</div>
+                </section>
 
-            <div>{<Outlet />}</div>
+
+            </section>
         </>
     )
 }

@@ -4,6 +4,7 @@ import Home from './home'
 import Layout from './administrador/componentes/layout'
 import Dashboard from './administrador/paginas/dashboard'
 import ProductsPage from './administrador/paginas/productsPage'
+import LoginAdmin from './administrador/paginas/loginAdmin'
 
 const Routers = () => {
     return (
@@ -16,6 +17,7 @@ const Routers = () => {
                     <Route index element={<Dashboard />}></Route>
                     <Route path='productos' element={<ProductsPage />}></Route>
                 </Route>
+                <Route path='/loginAdmin' element={<LoginAdmin />} />
             </Routes>
         </>
     )
