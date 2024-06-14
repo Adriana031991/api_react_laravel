@@ -7,10 +7,10 @@ const Layout = () => {
     return (
         <>
             <section className='flex flex-grow bg-neutral-100 h-screen w-screen overflow-hidden'>
-                <aside><Sidebar /></aside>
-                <nav> <Navbar user={''} /> </nav>
-                <section className="p-4">
-                    <div>{<Outlet />}</div>
+                <Sidebar />
+                <section className='flex-1'>
+                    <Navbar user={''} />
+                    <div className="p-4">{<Outlet />}</div>
                 </section>
 
 

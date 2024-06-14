@@ -3,7 +3,18 @@ import { AiTwotoneTags } from "react-icons/ai"
 import { HiOutlineViewGrid } from "react-icons/hi"
 import { IoBagHandle } from "react-icons/io5"
 import { MdDeliveryDining } from "react-icons/md"
+import { RiLogoutBoxLine } from "react-icons/ri"
 import { TbBrandCodesandbox } from "react-icons/tb"
+
+export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
+    {
+        key: 'log_out',
+        label: 'Salir',
+        path: '/login',
+        icon: <RiLogoutBoxLine />
+    },
+
+];
 
 export const DASHBOARD_SIDEBAR_LINKS = [
     {
