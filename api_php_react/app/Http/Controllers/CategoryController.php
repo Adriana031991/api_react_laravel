@@ -34,23 +34,24 @@ class CategoryController extends Controller
                 'image' => 'required',
             ]);
             $category = new Category();
-            if ($request->hasFile('image')) {
-                $path = 'assets/uploads/category/' . $category->image;
-                if (File::exists($path)) {
-                    File::delete($path);
+            // if ($request->hasFile('image')) {
+            //     $path = 'assets/uploads/category/' . $category->image;
+            //     if (File::exists($path)) {
+            //         File::delete($path);
 
-                }
-                $file = $request->file('image');
-                $ext = $file->getClientOriginalExtension();
-                $filename = time() . '.' . $ext;
-                try {
-                    $file->move('assets/uploads/category/', $filename);
-                } catch (FileException $e) {
-                    dd($e->getMessage());
-                }
-                $category->image = $filename;
-            }
+            //     }
+            //     $file = $request->file('image');
+            //     $ext = $file->getClientOriginalExtension();
+            //     $filename = time() . '.' . $ext;
+            //     try {
+            //         $file->move('assets/uploads/category/', $filename);
+            //     } catch (FileException $e) {
+            //         dd($e->getMessage());
+            //     }
+            //     $category->image = $filename;
+            // }
             $category->name = $request->name;
+            $category->image = $request->image;
             $category->save();
             return response()->json($category, 201);
         } catch (Exception $e) {

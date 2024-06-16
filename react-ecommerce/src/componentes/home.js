@@ -8,7 +8,7 @@ const Home = () => {
 
             <section className='home'>
                 <div className='top_banner'>
-
+                    {/* //proximamente el catalogo */}
                 </div>
             </section>
         </>

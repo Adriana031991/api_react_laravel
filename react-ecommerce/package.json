@@ -24,12 +24,6 @@
     "eject": "react-scripts eject",
     "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.output.css"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

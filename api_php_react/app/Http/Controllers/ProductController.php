@@ -44,22 +44,23 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->discount = $request->discount;
         $product->amount = $request->amount;
-        if ($request->hasFile('image')) {
-            $path = 'assets/uploads/product/' . $product->image;
-            if (File::exists($path)) {
-                File::delete($path);
+        $product->image = $request->image;
+        // if ($request->hasFile('image')) {
+        //     $path = 'assets/uploads/product/' . $product->image;
+        //     if (File::exists($path)) {
+        //         File::delete($path);
 
-            }
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
-            try {
-                $file->move('assets/uploads/product/', $filename);
-            } catch (FileException $e) {
-                dd($e->getMessage());
-            }
-            $product->image = $filename;
-        }
+        //     }
+        //     $file = $request->file('image');
+        //     $ext = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' . $ext;
+        //     try {
+        //         $file->move('assets/uploads/product/', $filename);
+        //     } catch (FileException $e) {
+        //         dd($e->getMessage());
+        //     }
+        //     $product->image = $filename;
+        // }
         $product->save();
         return response()->json('product added', 201);
     }
@@ -87,7 +88,7 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'category_id' => 'required|numeric',
             'brand_id' => 'required|numeric',
-            'discount' => 'required|numeric',
+            'discount' => 'numeric',
             'amount' => 'required|numeric',
             'image' => 'required',
         ]);
@@ -99,22 +100,23 @@ class ProductController extends Controller
             $product->brand_id = $request->brand_id;
             $product->discount = $request->discount;
             $product->amount = $request->amount;
-            if ($request->hasFile('image')) {
-                $path = 'assets/uploads/product/' . $product->image;
-                if (File::exists($path)) {
-                    File::delete($path);
+            $product->image = $request->image;
+            // if ($request->hasFile('image')) {
+            //     $path = 'assets/uploads/product/' . $product->image;
+            //     if (File::exists($path)) {
+            //         File::delete($path);
 
-                }
-                $file = $request->file('image');
-                $ext = $file->getClientOriginalExtension();
-                $filename = time() . '.' . $ext;
-                try {
-                    $file->move('assets/uploads/product/', $filename);
-                } catch (FileException $e) {
-                    dd($e->getMessage());
-                }
-                $product->image = $filename;
-            }
+            //     }
+            //     $file = $request->file('image');
+            //     $ext = $file->getClientOriginalExtension();
+            //     $filename = time() . '.' . $ext;
+            //     try {
+            //         $file->move('assets/uploads/product/', $filename);
+            //     } catch (FileException $e) {
+            //         dd($e->getMessage());
+            //     }
+            //     $product->image = $filename;
+            // }
             $product->save();
             return response()->json('product actualizado', 200);
 
