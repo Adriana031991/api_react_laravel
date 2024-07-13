@@ -1,0 +1,4 @@
+.add-to-cart-btn {
+    @apply bg-gradient-to-r from-cart-light-start to-cart-light-end hover:from-cart-light-end hover:to-cart-light-start text-gray-900;
+    @apply dark:from-cart-dark-start dark:to-cart-dark-end dark:hover:from-cart-dark-end dark:hover:to-cart-dark-start dark:text-gray-700;
+}

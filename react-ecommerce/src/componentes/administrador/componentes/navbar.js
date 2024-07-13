@@ -29,6 +29,7 @@ const Navbar = ({ user }) => {
                     <input
                         type='text'
                         placeholder='Buscar...'
+                        defaultValue=""
                         className='text-sm pr-4 pl-11 focus:outline-none active:outline-none h-10 w-[24rem] boder border-gray-300 rounded-lg' />
                     {/* <Input name="full_name" type="text" className='text-sm pr-4 pl-11 focus:outline-none active:outline-none h-10 w-[24rem] boder border-gray-300 rounded-lg' /> */}
                 </div>

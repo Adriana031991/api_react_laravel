@@ -1,21 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdLocalShipping } from 'react-icons/md'
-import logo from '../assets/logo/logo_esv_cosmetics.png';
+import logo from '../../assets/logo/logo_esv_cosmetics.png';
 import './nav.css'
 import { IoSearchOutline } from 'react-icons/io5';
-import { FaRegUser } from 'react-icons/fa';
+import { FaRegUser, FaSun } from 'react-icons/fa';
 import { useAuth0 } from "@auth0/auth0-react";
 import { SlLogout } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
+import { GiMoon } from 'react-icons/gi';
+
+
+// const initialDarkToggle = document.documentElement.className.includes("dark");
 
 const Nav = () => {
+    const [theme, setTheme] = useState('light');
+    const changeTheme = () => {
+        setTheme(theme === 'light' ? 'dark' : 'light');
+    }
+    useEffect(() => {
+        if (theme === 'dark') {
+            document.querySelector('html')?.classList.add("dark");
+        } else {
+            document.querySelector('html')?.classList.remove("dark");
+        }
+    }, [theme]);
 
     const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
-    console.log(user)
+    // console.log(user)
 
     const dataNav = new Map([
-        ['Inicio', '/inicio'],
-        ['Catálogo', '/catalogo'],
+        ['Inicio', '/'],
         ['Nosotros', '/nosotros'],
         ['Contacto', '/contacto'],
     ])
@@ -26,11 +40,35 @@ const Nav = () => {
     return (
         <>
             <section className='header'>
-                <section className='top_header'>
+                {/* <section className='top_header flex '>
 
                     <div className='icon'><MdLocalShipping /></div>
-                    <div className='info'>
+                    <div className='info '>
                         <p>Envios gratuitos por compras mayores a $50.000 </p>
+                    </div>
+                    <div className=' justify-evenly'>
+                        <button onClick={changeTheme}>
+                            {theme ? <GiMoon /> : <FaSun />}
+                        </button>
+
+                    </div>
+
+                </section> */}
+                <section className="top_header flex justify-between items-center p-4 bg-gray-200 dark:bg-gray-800">
+                    <div className="flex items-center space-x-2">
+                        <div className="icon">
+                            <MdLocalShipping className="text-xl text-gray-900 dark:text-white" />
+                        </div>
+                        <div className="info">
+                            <p className="text-gray-900 dark:text-white">
+                                Envíos gratuitos por compras mayores a $50.000
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onClick={changeTheme} className="text-gray-900 dark:text-white">
+                            {theme ? <GiMoon className="text-2xl" /> : <FaSun className="text-2xl" />}
+                        </button>
                     </div>
                 </section>
                 <section className='mid_header'>
@@ -38,7 +76,7 @@ const Nav = () => {
                         <img src={logo} alt='logo' ></img>
                     </div>
                     <div className='search_box'>
-                        <input type='text' value='' placeholder='Buscar...'></input>
+                        <input type='text' placeholder='Buscar...' defaultValue=""></input>
                         <button><IoSearchOutline /></button>
                     </div>
                     {isAuthenticated ?
@@ -86,7 +124,7 @@ const Nav = () => {
                         }
                     </div>
 
-                    <div className='nav'>
+                    <div className='nav bg-nav'>
                         <ul>
                             {Array.from(dataNav.entries()).map(([key, value]) => (
 
