@@ -8,11 +8,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { SlLogout } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
 import { GiMoon } from 'react-icons/gi';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from '../../lib/config/firebase.config';
 
-
-// const initialDarkToggle = document.documentElement.className.includes("dark");
 
 const Nav = () => {
+
     const [theme, setTheme] = useState('light');
     const changeTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
@@ -25,8 +26,18 @@ const Nav = () => {
         }
     }, [theme]);
 
-    const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
+    // const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
     // console.log(user)
+
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setUser(user);
+        });
+
+        return () => unsubscribe();
+    }, []);
 
     const dataNav = new Map([
         ['Inicio', '/'],
@@ -34,9 +45,17 @@ const Nav = () => {
         ['Contacto', '/contacto'],
     ])
 
-    if (isLoading) {
-        return <div>Loading ...</div>;
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            setUser(null);
+        } catch (error) {
+            console.error('Error signing out:', error);
+        }
     }
+
+
+
     return (
         <>
             <section className='header'>
@@ -67,7 +86,7 @@ const Nav = () => {
                     </div>
                     <div>
                         <button onClick={changeTheme} className="text-gray-900 dark:text-white">
-                            {theme ? <GiMoon className="text-2xl" /> : <FaSun className="text-2xl" />}
+                            {theme == 'light' ? <GiMoon className="text-2xl" /> : <FaSun className="text-2xl" />}
                         </button>
                     </div>
                 </section>
@@ -79,11 +98,12 @@ const Nav = () => {
                         <input type='text' placeholder='Buscar...' defaultValue=""></input>
                         <button><IoSearchOutline /></button>
                     </div>
-                    {isAuthenticated ?
+                    {user ?
                         <div className='user'>
                             <div className='icon'><SlLogout /></div>
 
-                            <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                            {/* <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}> */}
+                            <button onClick={handleLogout}>
                                 <span>Log out</span>
                             </button>
                         </div>
@@ -92,11 +112,10 @@ const Nav = () => {
                         <div className='user'>
                             <div className='icon'><FaRegUser /></div>
 
-                            <button onClick={() => loginWithRedirect()}>
+                            <Link to="/login">
                                 <span>Login</span>
-                                <span>Register</span>
-
-                            </button>
+                            </Link>
+                            {/* <button onClick={() => loginWithRedirect()}> */}
                             {/* <button >
                             <span>Register</span>
                         </button> */}
@@ -105,24 +124,7 @@ const Nav = () => {
                 </section>
 
                 <section className='last_header'>
-                    <div className='user_profile'>
-                        {
-                            isAuthenticated ?
-                                <>
-                                    <div className='info'>
-                                        <img src={user?.picture} alt={user?.name} />
-                                        <h2>{user?.nickname}</h2>
-                                        <span>{user?.email}</span>
-                                    </div>
-                                </>
-                                :
-                                <>
-                                    <div className='info'>
-                                        {/* <span>Por favor logueate</span> */}
-                                    </div>
-                                </>
-                        }
-                    </div>
+
 
                     <div className='nav bg-nav'>
                         <ul>

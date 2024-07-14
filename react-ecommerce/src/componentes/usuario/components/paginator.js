@@ -3,7 +3,7 @@ import React from 'react'
 const Paginator = ({ currentPage, totalPages, onPageChange }) => {
 
     const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
-    console.log(pages);
+
     return (
         <>
             <nav aria-label="navigation ">

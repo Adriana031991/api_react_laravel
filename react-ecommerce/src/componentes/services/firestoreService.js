@@ -30,7 +30,6 @@ export const firestoreService = {
                 id: doc.id,
                 ...doc.data(),
             }));
-            console.log(documents);
             return {
                 status: 'success',
                 documents: documents,

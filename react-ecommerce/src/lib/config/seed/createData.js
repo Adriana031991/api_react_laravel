@@ -5,7 +5,7 @@ import { db } from "../firebase.config";
 export const generateFakeProductsFromAPI = async (count) => {
     const response = await fetch('http://makeup-api.herokuapp.com/api/v1/products.json');
     const allProducts = await response.json();
-    console.log(allProducts);
+
     // Limit the number of products to the count specified
     const products = allProducts.slice(0, count).map((product, index) => ({
         id: index.toString(),
@@ -21,28 +21,17 @@ export const generateFakeProductsFromAPI = async (count) => {
         },
         quantity: Math.floor(Math.random() * 100) + 1 // Add a random quantity
     }));
-    console.log(products);
 
     return products;
 };
 
 
 export const uploadProductsToFirestore = async (products) => {
-    // const batch = firestoreService.batch();
-    // products.forEach((product) => {
-    //     const docRef = firestoreService.collection('products').doc(product.id);
-    //     batch.set(docRef, product);
-    // });
-    // await batch.commit();
+
     try {
-        // Recorre cada producto
-        console.log(products);
         for (const producto of products) {
-            // Crea un documento en la colección "productos"
-            // await db.collection('productos').add(producto);
             await addDoc(collection(db, 'productos'), producto);
         }
-
         console.log('Productos subidos correctamente');
     } catch (error) {
         console.error('Error al subir productos:', error);
