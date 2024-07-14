@@ -111,19 +111,20 @@ const Catalog = () => {
                                         </div>
 
                                         <div className="mt-4 flex items-center justify-between gap-4">
-                                            <p className="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">${producto.price.toLocaleString('es-CO')}</p>
+                                            <p className="text-sm font-extrabold leading-tight text-gray-900 dark:text-white">${producto.price.toLocaleString('es-CO')}</p>
 
                                             <button type="button"
-                                                // className="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium
-                                                //  text-cyan-500 hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 
-                                                //  dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 dark:text-white"
-                                                className='add-to-cart-btn inline-flex items-center py-2 px-4 rounded-lg font-bold transition-all duration-300 transform hover:scale-105'
+                                                className='
+                                                add-to-cart-btn 
+                                                text-sm lg:text-lg
+                                                inline-flex items-center 
+                                                py-2 px-4 rounded-lg font-bold transition-all duration-300 
+                                                transform hover:scale-105'
                                             >
 
-                                                <FaCartPlus />
-                                                <span className='ml-2'>
-                                                    Add to cart
-
+                                                <FaCartPlus className='text-sm sm:text-xl lg:text-2xl' />
+                                                <span className='ml-2 text-sm'>
+                                                    Agregar al carrito
                                                 </span>
                                             </button>
                                         </div>

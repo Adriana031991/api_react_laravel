@@ -94,7 +94,7 @@
     .last_header {
         width: 100%;
         padding: 10px 10px;
-        display: flex;
+        /* display: flex; */
         background: #232323;
         justify-content: space-between;
 

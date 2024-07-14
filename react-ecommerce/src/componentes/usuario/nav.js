@@ -41,6 +41,7 @@ const Nav = () => {
 
     const dataNav = new Map([
         ['Inicio', '/'],
+        ['Carrito de compras', '/carrito'],
         ['Nosotros', '/nosotros'],
         ['Contacto', '/contacto'],
     ])
@@ -73,7 +74,7 @@ const Nav = () => {
                     </div>
 
                 </section> */}
-                <section className="top_header flex justify-between items-center p-4 bg-gray-200 dark:bg-gray-800">
+                <section className="top_header flex justify-between items-center p-4 bg-catalog_light dark:bg-catalog_dark">
                     <div className="flex items-center space-x-2">
                         <div className="icon">
                             <MdLocalShipping className="text-xl text-gray-900 dark:text-white" />
@@ -102,7 +103,6 @@ const Nav = () => {
                         <div className='user'>
                             <div className='icon'><SlLogout /></div>
 
-                            {/* <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}> */}
                             <button onClick={handleLogout}>
                                 <span>Log out</span>
                             </button>
@@ -115,18 +115,14 @@ const Nav = () => {
                             <Link to="/login">
                                 <span>Login</span>
                             </Link>
-                            {/* <button onClick={() => loginWithRedirect()}> */}
-                            {/* <button >
-                            <span>Register</span>
-                        </button> */}
+
                         </div>
                     }
                 </section>
 
                 <section className='last_header'>
 
-
-                    <div className='nav bg-nav'>
+                    <div className='nav  flex justify-end'>
                         <ul>
                             {Array.from(dataNav.entries()).map(([key, value]) => (
 

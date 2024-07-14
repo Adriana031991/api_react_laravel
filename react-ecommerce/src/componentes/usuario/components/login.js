@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../../lib/config/firebase.config';
 import logo from '../../../assets/logo/logo_esv_cosmetics.png';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaGoogle, FaGoogleDrive } from 'react-icons/fa';
 
 const Login = () => {
     const provider = new GoogleAuthProvider();
@@ -93,12 +94,27 @@ const Login = () => {
                                 <button
                                     type="button"
                                     onClick={handleLoginGoogle}
-                                    className="w-full text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 mt-4">
-                                    Ingresar con Google
+                                    className="w-52 text-black  hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  dark:hover:bg-yellow-700 dark:focus:ring-yellow-800 mt-4">
+                                    <div className='flex justify-between'>
+                                        <FaGoogle />
+                                        Ingresar con Google
+
+                                    </div>
                                 </button>
 
+                                <p className="text-sm font-light text-gray-500 dark:text-gray-400 mr-2">
+                                    No tiene una cuenta todavia?
+                                    <Link to="/register">
+                                        <span>Regístrate</span>
+                                    </Link>
+
+                                </p>
                                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                    No tiene una cuenta todavia? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Regístrate</a>
+
+                                    <Link to="/">
+                                        <span>Home</span>
+                                    </Link>
+
                                 </p>
                             </form>
                         </div>
