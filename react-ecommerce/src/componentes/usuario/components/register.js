@@ -9,11 +9,12 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate();
+    const [error, setError] = useState(null);
 
     const handleRegister = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
-            alert('Passwords do not match');
+            setError('Passwords do not match');
             return;
         }
         try {
@@ -23,7 +24,9 @@ const Register = () => {
             navigate("/"); // Redirige al usuario a la página de inicio
         } catch (error) {
             console.error(error);
-            alert('Error registering user: ' + error.message);
+            setError(error.message);
+
+            // alert('Error registering user: ' + error.message);
         }
     };
 
@@ -78,7 +81,10 @@ const Register = () => {
                                     onChange={(e) => setConfirmPassword(e.target.value)}
                                 />
                             </div>
-
+                            {error &&
+                                <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                                    {error}</p>
+                            }
                             <button
                                 onClick={handleRegister}
                                 type="button"

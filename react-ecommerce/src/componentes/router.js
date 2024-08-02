@@ -10,16 +10,22 @@ import PrivateRoute from './usuario/components/privateroute'
 import Register from './usuario/components/register'
 import Home from './usuario/home'
 import LoginAdmin from './administrador/paginas/loginAdmin'
+import Cart from './usuario/components/cart'
+import Catalog from './usuario/components/catalog'
+import ProductDetail from './usuario/components/productDetail'
 
 const Routers = () => {
     return (
         <>
             <Routes>
-                <Route path='/login' element={<Login />} />
-                <Route path='/register' element={<Register />} />
                 <Route path='/' element={<Home />} >
                     {/* <Route path='nosotros' element={<ProductsPage />}></Route>
                 <Route path='contacto' element={<ProductsPage />}></Route> */}
+                    <Route index element={<Catalog />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/detalle' element={<ProductDetail />} />
+                    <Route path='/carrito' element={<Cart />}></Route>
                     <Route
                         path="/dashboard"
                         element={

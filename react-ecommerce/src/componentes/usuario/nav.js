@@ -6,7 +6,7 @@ import { IoSearchOutline } from 'react-icons/io5';
 import { FaRegUser, FaSun } from 'react-icons/fa';
 import { useAuth0 } from "@auth0/auth0-react";
 import { SlLogout } from 'react-icons/sl';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { GiMoon } from 'react-icons/gi';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../lib/config/firebase.config';
@@ -136,6 +136,7 @@ const Nav = () => {
                     </div>
                 </section>
             </section>
+            <Outlet />
         </>
     )
 }

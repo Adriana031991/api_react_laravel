@@ -14,15 +14,23 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [user, setUser] = useState(null);
+    const [error, setError] = useState(null);
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            // Redirige al usuario a la página de inicio o a otra página después del inicio de sesión exitoso
+            await signInWithEmailAndPassword(auth, email, password).then((res) => {
+                navigate("/");
+
+            });
         } catch (error) {
-            console.error(error);
-            // Muestra un mensaje de error al usuario
+            if (error.code === 'auth/user-not-found') {
+                setError('Usuario no existe.');
+
+            } else {
+
+                setError(error.message);
+            }
         }
     };
 
@@ -30,7 +38,7 @@ const Login = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 setUser(result.user);
-                console.log(result.user)
+                // console.log(result.user)
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
                 navigate("/"); // Redirige al usuario a la página de inicio
@@ -41,6 +49,8 @@ const Login = () => {
                 // The AuthCredential type that was used.
                 // const credential = GoogleAuthProvider.credentialFromError(error);
                 console.log(error)
+                setError(error.message);
+
             });
     };
 
@@ -68,6 +78,8 @@ const Login = () => {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                     />
+
+
                                 </div>
                                 <div>
                                     <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
@@ -82,6 +94,10 @@ const Login = () => {
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
                                 </div>
+                                {error &&
+                                    <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        {error}</p>
+                                }
                                 <div className="flex items-center justify-between">
 
                                     <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Olvidaste la contraseña?</a>

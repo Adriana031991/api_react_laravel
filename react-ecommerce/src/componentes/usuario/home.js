@@ -10,7 +10,7 @@ const Home = () => {
 
             <section className='home'>
                 <div className='top_banner'>
-                    <Catalog />
+                    {/* <Catalog /> */}
                     {/* <Login /> */}
                     {/* //proximamente el catalogo */}
                 </div>

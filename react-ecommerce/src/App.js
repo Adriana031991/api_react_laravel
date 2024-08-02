@@ -3,15 +3,19 @@ import { BrowserRouter } from 'react-router-dom'
 import Routers from './componentes/router'
 import './App.css'
 import './tailwind.css'
+import { CartProvider } from './componentes/services/cartService'
 
 
 const App = () => {
 
   return (
     <>
-      <BrowserRouter>
-        <Routers />
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Routers />
+        </BrowserRouter>
+
+      </CartProvider>
     </>
   )
 }
