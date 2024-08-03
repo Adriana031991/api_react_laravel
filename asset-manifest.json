@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/api_react_laravel/esv-cosmetics/static/css/main.4a7a23f1.css",
-    "main.js": "/api_react_laravel/esv-cosmetics/static/js/main.00168a63.js",
-    "static/js/453.48d7f081.chunk.js": "/api_react_laravel/esv-cosmetics/static/js/453.48d7f081.chunk.js",
-    "index.html": "/api_react_laravel/esv-cosmetics/index.html",
-    "main.4a7a23f1.css.map": "/api_react_laravel/esv-cosmetics/static/css/main.4a7a23f1.css.map",
-    "main.00168a63.js.map": "/api_react_laravel/esv-cosmetics/static/js/main.00168a63.js.map",
-    "453.48d7f081.chunk.js.map": "/api_react_laravel/esv-cosmetics/static/js/453.48d7f081.chunk.js.map"
+    "main.css": "/api_react_laravel/static/css/main.4a7a23f1.css",
+    "main.js": "/api_react_laravel/static/js/main.85326f12.js",
+    "static/js/453.48d7f081.chunk.js": "/api_react_laravel/static/js/453.48d7f081.chunk.js",
+    "index.html": "/api_react_laravel/index.html",
+    "main.4a7a23f1.css.map": "/api_react_laravel/static/css/main.4a7a23f1.css.map",
+    "main.85326f12.js.map": "/api_react_laravel/static/js/main.85326f12.js.map",
+    "453.48d7f081.chunk.js.map": "/api_react_laravel/static/js/453.48d7f081.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4a7a23f1.css",
-    "static/js/main.00168a63.js"
+    "static/js/main.85326f12.js"
   ]
 }
