@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/esv-cosmetics/static/css/main.4a7a23f1.css",
+    "main.js": "/esv-cosmetics/static/js/main.2fcb1cec.js",
+    "static/js/453.48d7f081.chunk.js": "/esv-cosmetics/static/js/453.48d7f081.chunk.js",
+    "index.html": "/esv-cosmetics/index.html",
+    "main.4a7a23f1.css.map": "/esv-cosmetics/static/css/main.4a7a23f1.css.map",
+    "main.2fcb1cec.js.map": "/esv-cosmetics/static/js/main.2fcb1cec.js.map",
+    "453.48d7f081.chunk.js.map": "/esv-cosmetics/static/js/453.48d7f081.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a7a23f1.css",
+    "static/js/main.2fcb1cec.js"
+  ]
+}
